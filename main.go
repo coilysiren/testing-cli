@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 func main() {
@@ -15,14 +15,14 @@ func main() {
 		fmt.Println("c.App.Name for app.Action is", c.App.Name)
 		return nil
 	}
-	app.Commands = []cli.Command{
+	app.Commands = []*cli.Command{
 		{
 			Name: "foo",
 			Action: func(c *cli.Context) error {
 				fmt.Println("c.App.Name for app.Commands.Action is", c.App.Name)
 				return nil
 			},
-			Subcommands: []cli.Command{
+			Subcommands: []*cli.Command{
 				{
 					Name: "bar",
 					Action: func(c *cli.Context) error {
