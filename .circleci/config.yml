@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.13
+    working_directory: /go/src/github.com/lynncyrin/testing-cli
+    steps:
+      - checkout
+      - run: go run main.go
+      - run: go run main.go foo
+      - run: go run main.go foo bar
