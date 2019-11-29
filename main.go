@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/urfave/cli"
 	"log"
 	"os"
+
+	"github.com/urfave/cli"
 )
 
 func main() {
@@ -15,8 +16,18 @@ func main() {
 			Name: "foo",
 			Action: func(c *cli.Context) error {
 				program := c.App.Name
-				fmt.Println("subcommand", program)
+				fmt.Println("command", program)
 				return nil
+			},
+			Subcommands: []cli.Command{
+				{
+					Name: "bar",
+					Action: func(c *cli.Context) error {
+						program := c.App.Name
+						fmt.Println("subcommand", program)
+						return nil
+					},
+				},
 			},
 		},
 	}
