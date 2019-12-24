@@ -7,5 +7,3 @@ jobs:
     steps:
       - checkout
       - run: go run main.go
-      - run: go run main.go foo
-      - run: go run main.go foo bar
